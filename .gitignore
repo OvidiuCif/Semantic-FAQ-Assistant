@@ -1,0 +1,32 @@
+#python virtual env
+/venv/
+/.venv/
+/env/
+/.env/
+/activate
+/lib/
+/include/
+/bin/
+
+#artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+/build/
+/dist/
+
+#env/secrets
+.env
+*.env
+
+#---
+.vscode/
+.idea/
+
+
+.langchain/
+#os files
+.DS_Store
+Thumbs.db
