@@ -1,3 +1,4 @@
+# filepath: c:\Projects\Semantic FAQ Assistant\resources\database_utilities.py
 from sqlalchemy import create_engine, text
 import os
 

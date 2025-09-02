@@ -1,0 +1,27 @@
+# docker compose config for Semantic-FAQ-Assistant
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/faq_database
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+  db:
+    image: ankane/pgvector:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=faq_database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./resources/PostgreSQL.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:

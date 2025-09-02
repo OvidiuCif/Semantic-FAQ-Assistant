@@ -16,17 +16,19 @@ __pycache__/
 *.egg-info/
 /build/
 /dist/
+build/
 
-#env/secrets
+#environment/secrets
 .env
 *.env
+.env.docker
+.env.example
 
-#---
+# IDEs
 .vscode/
 .idea/
 
-
+# Other
 .langchain/
-#os files
 .DS_Store
 Thumbs.db
