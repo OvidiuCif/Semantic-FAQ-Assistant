@@ -30,4 +30,12 @@ nmake /f Makefile.win install
 ```
 
 
+3. created DB, table and insert dataset into PostgreSQL
+-the column embeddings is initially empty and there is a utility py file that can be run
+```python resources/update_embeddings.py```
+-this is going to connecto to db - find all faq entries without embeddings, generate embedding for each question using the embedding model > update db
 
+4. then the main/process can be runned 
+```python main.py```
+
+!important: database and open ai key from env to be updated

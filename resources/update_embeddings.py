@@ -23,11 +23,14 @@ def update_faq_embeddings():
             print(f"Processing: {i}/{total}: {question[:30]}")
             embedding = get_embeddings(question)
             
-            conn.execute(text('''
+            embedding_str = str(embedding).replace('[', '').replace(']', '')
+            
+            conn.execute(text(
+            """
                 UPDATE faq_database_schema.faq_table 
-                SET embedding = :embedding 
+                SET embedding = '[""" + embedding_str + """]'::vector
                 WHERE id = :id
-            '''), {'embedding': embedding, 'id': faq_id})
+            """), {'id': faq_id})
             conn.commit()
             print(f"Updated embedding for FAQ #{faq_id}")
 

@@ -8,3 +8,9 @@ python-dotenv
 psycopg2-binary
 sqlalchemy
 pgvector
+fastapi
+uvicorn
+#for api's/security
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
